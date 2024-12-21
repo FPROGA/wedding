@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Стили для контейнера изображения */
+        .image-container {
+            position: relative; /* Устанавливаем относительное позиционирование для контейнера */
+            max-width: 100%; /* Ограничиваем максимальную ширину изображения */
+            height: auto; /* Высота будет автоматически подстраиваться */
+        }
+
+        img {
+            width: 100%; /* Ширина изображения будет 100% от контейнера */
+            height: auto; /* Высота будет автоматически подстраиваться */
+            border: none; /* Убираем рамку */
+        }
+
+        /* Стили для кнопки */
+        .play-button {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 22%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%); /* Центрируем кнопку */
+            padding: 35px 44px; /* Отступы */
+            background-color: rgba(255, 0, 0, 0.7); /* Полупрозрачный красный фон */
+            color: white; /* Цвет текста */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Скругленные углы */
+            cursor: pointer; /* Указатель курсора */
+            opacity: 0; /* Делаем кнопку невидимой */
+            pointer-events: auto; /* Позволяем кнопке реагировать на события клика */
+        }
+        .map-button{
+        position: absolute; /* Абсолютное позиционирование */
+            top: 42.2%; /* Центрируем по вертикали */
+            left: 50%; /* Центрируем по горизонтали */
+            transform: translate(-50%, -50%); /* Центрируем кнопку */
+            padding: 35px 153px; /* Отступы */
+            background-color: rgba(255, 0, 0, 0.7); /* Полупрозрачный красный фон */
+            color: white; /* Цвет текста */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Скругленные углы */
+            cursor: pointer; /* Указатель курсора */
+            opacity: 0; /* Делаем кнопку невидимой */
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="image-container">
+    <img src="prig.jpg" alt="prig">
+    <button class="play-button" onclick="playMusic()">Play Music</button>
+    <button class="map-button" onclick="goToMap()">Map</button>
+</div>
+
+<audio id="audio" src="song.mp3"></audio> <!-- Аудиофайл -->
+
+<script>
+    var isPlaying = false; // Переменная для отслеживания состояния воспроизведения
+
+    function playMusic() {
+        var audio = document.getElementById('audio');
+
+        if (isPlaying) {
+            audio.pause(); // Останавливаем музыку
+            audio.currentTime = 0; // Сбрасываем время воспроизведения
+        } else {
+            audio.play(); // Воспроизводим музыку
+        }
+
+        isPlaying = !isPlaying; // Переключаем состояние
+    }
+    function goToMap() {
+        window.location.href = "https://2gis.ru/krasnoyarsk/geo/985798073695523";
+    }
+</script>
+</body>
+</html>
